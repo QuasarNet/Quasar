@@ -1,0 +1,12 @@
+<!LIB_Type; WebSupport>
+
+ Quasar
+  From "Quasar" , Include WebDev
+  From "Quasar" , Include Applications
+  From "Quasar" , Include Design
+  From "Quasar" , Include Implementations
+
+ {
+    Class.SupportList
+      HTML, PHP, CSS, SASS, TailWindCSS, JS, Python, SQL
+ }

@@ -1,0 +1,15 @@
+<!LIB_Type; WebSupport>
+
+ Quasar
+  From "Quasar" , Include WebDev
+  From "Quasar" , Include Implementations
+  From "Quasar" , Include Obfuscation
+
+ {
+    Class.API
+      Import_LockedFile ^ RequiresKey&Authentication
+        LongAddress = DomainName&Type
+        ShortAddress = PortNumber ? PortType = LocalPort
+      WebSocket&Connection = https://(**.***.*.***):(****)
+        LoadAPI @ReferenceSecure
+ }

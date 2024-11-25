@@ -1,0 +1,60 @@
+<!LIB_Type; WebSupport>
+
+ Quasar
+  From "Quasar" , Include WebDev
+  From "Quasar" , Include Applications
+  From "Quasar" , Include Design
+  From "Quasar" , Include Implementations
+
+ {
+    Class.SupportedLogins
+      Quasar, Lunar(EOL), Microsoft, Google, Facebook, Instagram, Threads
+      Twitter, TikTok, Discord, GitHub, OpenAI
+
+    Class.OauthVersions
+      String&URL_Data ID "Oauth V1" , CreateNewURL&Port
+      String&URL_Data ID "Oauth V2" , CreateNewURL&Port
+      String&URL_Data ID "Oauth V3" , CreateNewURL&Port
+      String&URL_Data ID "Custom Oauth" , CreateNewURL&Port
+ }
+
+ {
+    Class.ImportQuasarAI
+      SortCategory <OauthLoginType(ByName&Type)> $Company/Group())
+ }
+
+ {
+    Class.SignUpRequirements
+      Referer; "sign-up"
+ }
+
+ //
+    * BackgroundColour; Default&Auto
+    * SecondaryColour; Default&Auto
+    * AccentColour; Default&Auto
+    * ToneColour; Default&Auto
+    * HeaderColour; Default&Auto
+    * SubHeaderColour; Default&Auto
+    * ShadowColour; Default&Auto
+    * HighlightColour; Default&Auto
+    * DesignType; Modern&Clean(Rounded)
+    * InterfaceType; Modern&Clean(Rounded)
+
+      Header; Login Hub
+      SubHeader; Choose which platform You want to login, sign up or continue with!
+      
+       <Break>
+
+      ButtonURL = Get.QuasarOauthURL & ButtonText = Quasar
+      ButtonURL = Get.Lunar(EOL)OauthURL & ButtonText = Lunar (EOL)
+      ButtonURL = Get.MicrosoftOauthURL & ButtonText = Microsoft
+      ButtonURL = Get.GoogleOauthURL & ButtonText = Google
+      ButtonURL = Get.Meta-FacebookOauthURL & ButtonText = Facebook
+      ButtonURL = Get.Meta-InstagramOauthURL & ButtonText = Instagram
+      ButtonURL = Get.Meta-ThreadsOauthURL & ButtonText = Threads
+      ButtonURL = Get.TwitterOauthURL & ButtonText = Twitter
+      ButtonURL = Get.TikTokOauthURL & ButtonText = TikTok
+      ButtonURL = Get.DiscordOauthURL & ButtonText = Discord
+      ButtonURL = Get.GitHubOauthURL & ButtonText = GitHub
+      ButtonURL = Get.OpenAIOauthURL & ButtonText = OpenAI
+ //
