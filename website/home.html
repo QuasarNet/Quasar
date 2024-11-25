@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
     
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The official Quasar Developer website.">
@@ -14,14 +14,19 @@
     <link rel="stylesheet" href="https://quasarnet.github.io/Quasar/assets/css/responsive.css">
     <link rel="stylesheet" href="https://quasarnet.github.io/Quasar/assets/css/background.css">
     <link rel="stylesheet" href="https://quasarnet.github.io/Quasar/assets/css/scrollbar.css">
+    <link rel="stylesheet" href="https://quasarnet.github.io/Quasar/assets/css/ux.css">
     
     <style>
-
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             color: #ffffff;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            overflow: hidden;
         }
 
         .navbar {
@@ -39,7 +44,7 @@
         }
 
         .navbar img {
-            width: 30px;
+            width: 24px;
             height: auto;
             cursor: pointer;
             transition: transform 0.2s ease;
@@ -49,88 +54,179 @@
             transform: scale(1.1);
         }
 
-        .content {
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(150% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #141414;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+            padding: 10px 0;
+            width: 200px;
+            z-index: 1000;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .dropdown-menu a:hover, .dropdown-menu a:focus {
+            background-color: #1e1e1e;
+            outline: none;
+            transform: scale(1.05);
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .center-content {
             margin-top: 80px;
+        }
+
+        .center-content h4 {
+            margin: 15px 0 5px;
+            font-size: 1.5em;
+        }
+
+        .center-content p {
+            margin: 0;
+            font-size: 1em;
+            color: #cccccc;
+        }
+
+        .buttons-container {
+            margin: 30px 0;
             display: flex;
             flex-direction: column;
+            gap: 15px;
             align-items: center;
         }
 
-        .content img {
-            width: 85px;
-            height: auto;
-            margin-bottom: 1rem;
-        }
-
-        h4 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        p {
-            font-size: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: bold;
+        .buttons-container a {
+            display: inline-block;
+            text-decoration: none;
             color: #ffffff;
-            background-color: transparent;
+            background: rgba(20, 20, 20, 0.8);
             border: 2px solid #ffffff;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 12px;
+            width: 200px;
+            text-align: center;
+            font-size: 1em;
+            transition: all 0.3s ease;
         }
 
-        .button:hover {
-            background-color: #1e1e1e;
+        .buttons-container a:hover {
+            background: rgba(255, 255, 255, 0.2);
             transform: scale(1.05);
         }
+
+        .bottom-bar {
+            background-color: #141414;
+            border-top: 2px solid #ffffff;
+            padding: 10px 20px;
+            width: 100%;
+            border-radius: 12px 12px 0 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .bottom-bar p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #cccccc;
+        }
     </style>
-    
 </head>
     
 <body>
-
     <div class="navbar">
         <a href="https://quasarnet.github.io/Quasar/website/home.html"><img src="https://quasarnet.github.io/Quasar/assets/images/icons/home.png" alt="Home"></a>
-        <a href="https://quasarnet.github.io/Quasar/website/info/about.html"><img src="https://quasarnet.github.io/Quasar/assets/images/icons/info.png" alt="Info"></a>
-        <a href="https://quasarnet.github.io/Quasar/website/projects/webview-apks.html"><img src="https://quasarnet.github.io/Quasar/assets/images/icons/projects.png" alt="Projects"></a>
-        <a href="https://quasarnet.github.io/Quasar/website/services/services.html"><img src="https://quasarnet.github.io/Quasar/assets/images/icons/services.png" alt="Services"></a>
+
+        <div class="dropdown">
+            <img src="https://quasarnet.github.io/Quasar/assets/images/icons/info.png" alt="Info" onclick="toggleDropdown('info-menu')">
+            <div class="dropdown-menu" id="info-menu">
+                <a href="https://quasarnet.github.io/Quasar/website/info/about.html">About Us</a>
+                <a href="https://quasarnet.github.io/Quasar/website/info/social-media.html">Social Media</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <img src="https://quasarnet.github.io/Quasar/assets/images/icons/projects.png" alt="Projects" onclick="toggleDropdown('projects-menu')">
+            <div class="dropdown-menu" id="projects-menu">
+                <a href="https://quasarnet.github.io/Quasar/website/projects/webview-apks.html">WebView APKs</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <img src="https://quasarnet.github.io/Quasar/assets/images/icons/services.png" alt="Services" onclick="toggleDropdown('services-menu')">
+            <div class="dropdown-menu" id="services-menu">
+                <a href="https://quasarnet.github.io/Quasar/website/services/services.html">Services</a>
+            </div>
+        </div>
+
         <a href="https://quasarnet.github.io/Quasar/" onclick="closeSite()"><img src="https://quasarnet.github.io/Quasar/assets/images/icons/exit.png" alt="Exit"></a>
     </div>
 
-    <div class="content">
-        <img src="https://quasarnet.github.io/Quasar/assets/images/icons/home.png" alt="Home">
-        
-        <br>
-        
-        <h4>Home</h4>
-        <p>Choose where You want to go!</p>
-        <button class="button" onclick="redirectToInfo()">Info</button>
-        <button class="button" onclick="redirectToProjects()">Projects</button>
-        <button class="button" onclick="redirectToServices()">Services</button>
+<div class="center-content">
+    
+    <br>
+     <br>
+      <br>
+     <br>
+    <br>
+   <br>
+    
+    <h4>Welcome to Quasar</h4>
+    <p>Choose which page You want to visit.<br>Please note that the site isn't complete yet!</p>
+    
+    <div class="buttons-container">
+        <a href="info/about.html" target="_blank">Info</a>
+        <a href="projects/webview-apks.html" target="_blank">Projects</a>
+        <a href="services/services.html" target="_blank">Services</a>
+    </div>
+</div>
+
+    <div class="bottom-bar">
+        <p>&copy; Quasar Developer 2024, all rights reserved.</p>
     </div>
 
     <script>
-        function redirectToInfo() {
-            window.location.href = "https://quasarnet.github.io/Quasar/website/info/about.html";
-        }
-
-        function redirectToProjects() {
-            window.location.href = "https://quasarnet.github.io/Quasar/website/projects/webview-apks.html";
-        }
-
-        function redirectToServices() {
-            window.location.href = "https://quasarnet.github.io/Quasar/website/services/services.html";
+        function toggleDropdown(menuId) {
+            const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+            dropdownMenus.forEach(menu => {
+                if (menu.id === menuId) {
+                    menu.classList.toggle('show');
+                } else {
+                    menu.classList.remove('show');
+                }
+            });
         }
 
         function closeSite() {
             window.open('', '_self').close();
         }
+
+        document.addEventListener('click', function (event) {
+            const isClickInside = event.target.closest('.dropdown');
+            if (!isClickInside) {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => menu.classList.remove('show'));
+            }
+        });
     </script>
 </body>
     

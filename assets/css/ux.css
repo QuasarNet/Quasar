@@ -1,0 +1,81 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:focus {
+    outline: none !important;
+}
+
+button,
+a,
+input,
+textarea,
+select,
+[role="button"] {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+}
+
+a:active,
+button:active {
+    outline: none;
+    box-shadow: none !important;
+}
+
+:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: inherit;
+    box-shadow: none;
+}
+
+html,
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
+body {
+    -webkit-text-size-adjust: 100%;
+    -webkit-highlight-color: transparent;
+}
+
+input,
+textarea,
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+svg,
+img,
+path {
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus,
+a:active {
+    outline: none;
+    text-decoration: none !important;
+}
